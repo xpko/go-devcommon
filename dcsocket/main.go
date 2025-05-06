@@ -54,7 +54,7 @@ func GetTCPConn(host string, port int) (conn net.Conn, err error) {
 }
 
 func CheckPort(host string, port int) bool {
-	timeout := time.Second
+	timeout := 10*time.Second
 	conn, err := net.DialTimeout("tcp", net.JoinHostPort(host, strconv.Itoa(port)), timeout)
 	if err != nil {
 		fmt.Println("Connecting error:", err)
